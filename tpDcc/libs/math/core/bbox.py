@@ -7,6 +7,8 @@ Module that contains bounding box implementation
 
 from __future__ import print_function, division, absolute_import
 
+from tpDcc.libs.math.core import vec3
+
 
 class BoundingBox(object):
     """
@@ -40,7 +42,7 @@ class BoundingBox(object):
         :return: list<float, float, float>
         """
 
-        return get_mid_point(self.min_vector, self.max_vector)
+        return vec3.get_mid_point(self.min_vector, self.max_vector)
 
     def get_ymax_center(self):
         """
@@ -48,7 +50,7 @@ class BoundingBox(object):
         :return: list<float, float, float>
         """
 
-        return get_mid_point(self.max_vector, self.opposite_max_vector)
+        return vec3.get_mid_point(self.max_vector, self.opposite_max_vector)
 
     def get_ymin_center(self):
         """
@@ -56,7 +58,7 @@ class BoundingBox(object):
         :return: list<float, float, float>
         """
 
-        return get_mid_point(self.min_vector, self.opposite_min_vector)
+        return vec3.get_mid_point(self.min_vector, self.opposite_min_vector)
 
     def get_size(self):
         """
@@ -64,7 +66,7 @@ class BoundingBox(object):
         :return: float
         """
 
-        return get_distance_between_vectors(self.min_vector, self.max_vector)
+        return vec3.get_distance_between_vectors(self.min_vector, self.max_vector)
 
 
 def bounding_box_half_values(bbox_min, bbox_max):
